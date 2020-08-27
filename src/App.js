@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import {Button , message} from 'antd';
-import './App.css';
+import Login from './pages/login/login'
+import Admin from './pages/admin/admin'
+import {BrowserRouter,Route,Switch} from 'react-router-dom'
 // 应用的跟组件
 export default class App extends Component{
  
@@ -9,6 +10,16 @@ export default class App extends Component{
   }
 
     render(){
-        return <div className="App"><Button type="primary" onClick={this.handleClick}>测试按钮</Button></div>
+        return (
+
+  // <div className="App"><Button type="primary" onClick={this.handleClick}>测试按钮</Button></div>
+<BrowserRouter>
+<Switch>{/*只匹配一个*/}
+<Route path='/login' component={Login}></Route>
+<Route path='/Admin' component={Admin}></Route>
+</Switch>
+
+</BrowserRouter>
+        )
     }
 }
